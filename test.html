@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一起吃飯嗎？</title>
+</head>
+<body>
+    <h1>一起吃飯嗎？</h1>
+    <p>請回答以下問題：</p>
+    
+    <button onclick="answerYes()">是</button>
+    <button onclick="answerNo()">不是</button>
+    
+    <div id="response"></div>
+
+    <img id="catImage" src="https://placekitten.com/300/200" alt="可愛的貓咪">
+
+    <script>
+        function answerYes() {
+            document.getElementById('response').innerHTML = '太好了！我們一起吃飯吧！';
+        }
+
+        function answerNo() {
+            document.getElementById('response').innerHTML = '哦，好的，沒問題。';
+        }
+    </script>
+</body>
+</html>
