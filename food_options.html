@@ -11,24 +11,46 @@
     <ul>
         <li>
             <h3>披薩</h3>
-            <img src="pizza_image.jpg" alt="披薩圖片">
+            <img id="pizzaImage" alt="披薩圖片">
         </li>
         <li>
             <h3>漢堡</h3>
-            <img src="burger_image.jpg" alt="漢堡圖片">
+            <img id="burgerImage" alt="漢堡圖片">
         </li>
         <li>
             <h3>壽司</h3>
-            <img src="sushi_image.jpg" alt="壽司圖片">
+            <img id="sushiImage" alt="壽司圖片">
         </li>
         <li>
             <h3>意大利面</h3>
-            <img src="pasta_image.jpg" alt="意大利面圖片">
+            <img id="pastaImage" alt="意大利面圖片">
         </li>
         <li>
             <h3>沙拉</h3>
-            <img src="salad_image.jpg" alt="沙拉圖片">
+            <img id="saladImage" alt="沙拉圖片">
         </li>
     </ul>
+
+    <script>
+        function getRandomImage(query, elementId) {
+            // 使用 Unsplash API 隨機取得圖片
+            fetch(`https://source.unsplash.com/300x200/?${query}`)
+                .then(response => {
+                    document.getElementById(elementId).src = response.url;
+                })
+                .catch(error => {
+                    console.error('無法取得圖片', error);
+                });
+        }
+
+        // 在頁面載入時，為每個食物取得一張隨機圖片
+        document.addEventListener('DOMContentLoaded', function () {
+            getRandomImage('pizza', 'pizzaImage');
+            getRandomImage('burger', 'burgerImage');
+            getRandomImage('sushi', 'sushiImage');
+            getRandomImage('pasta', 'pastaImage');
+            getRandomImage('salad', 'saladImage');
+        });
+    </script>
 </body>
 </html>
